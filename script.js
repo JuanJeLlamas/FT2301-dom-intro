@@ -162,6 +162,7 @@ let buttonSubsDOM = document.querySelector("#decrement")
 let inputDOM = document.querySelector("#name")
 let textAddDOM = document.querySelector("#add-btn")
 let ulDOM = document.querySelector("#output-list")
+let allButtonsDOM = document.querySelectorAll(".last-btn")
 
 // SECCION DE FUNCIONES
 function handleMouseEnter() {
@@ -215,6 +216,23 @@ function addStrToList() {
 
 }
 
+function deleteButton(event) {
+  console.log("intentando borrar el boton")
+  console.log(event.target)
+  console.log(event.target.parentNode)
+  //.remove()
+  // sobre cual elemento aplico el .remove?
+  // allButtonsDOM[0].remove()
+  // event.target.remove()
+
+  // suponemos que quiero borrar todo el contenedor padre.
+  event.target.parentNode.remove()
+  // parentNode apunta a la referencia padre de un elemento de DOM.
+
+  // event.target.parentNode.parentNode.remove()
+
+}
+
 // SECCION DE EVENT LISTENERS
 eventTitleDOM.addEventListener("mouseenter", handleMouseEnter)
 eventTitleDOM.addEventListener("mouseleave", handleMouseLeave)
@@ -227,4 +245,10 @@ inputDOM.addEventListener("keydown", (event) => {
     console.log("evento activo", event.code)
     addStrToList()
   }
+})
+
+allButtonsDOM.forEach((eachBtnDOM, index) => {
+
+  eachBtnDOM.addEventListener("click", deleteButton)
+
 })

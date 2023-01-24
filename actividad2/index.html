@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM - manipulation</title>
+  </head>
+  <body>
+
+    <h1>Part 1. To Do List</h1>
+
+    <div action="#" id="new-task-form">
+      <label for="task-input"> Task: </label>
+      <input type="text" name="task" id="task-input" />
+
+      <label for="owner-input">Owner:</label>
+      <input type="text" name="owner" id="owner-input" />
+      <button id="btn-add">Add</button>
+    </div>
+
+    <div>
+      <ul id="tasks-list"></ul>
+    </div>
+    <hr/>
+
+    <h1>Part 2. Pokemon Dream Team</h1>
+
+    <section style="display: flex">
+      <div class="container" style="border: solid 2px black; height:200px; width:200px">
+        <img src="" alt="" width="200px" height="200px">
+      </div>
+      <div class="container" style="border: solid 2px black; height:200px; width:200px">
+        <img src="" alt="" width="200px" height="200px">
+      </div>
+      <div class="container" style="border: solid 2px black; height:200px; width:200px">
+        <img src="" alt="" width="200px" height="200px">
+      </div>
+    </section>
+
+    <button id="btn-update">Update the Dream Team</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
