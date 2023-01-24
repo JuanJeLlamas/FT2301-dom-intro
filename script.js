@@ -150,3 +150,81 @@ console.log(lastTagDOM.className);
 lastTagDOM.classList.add("new-class") // añade clase
 lastTagDOM.classList.remove("best-practice") // remueve clase
 console.log( lastTagDOM.classList.contains("after-footer") ) // booleano si incluye o no la clase
+
+
+
+// EVENTS
+
+let eventTitleDOM = document.querySelector("#event-title")
+let counterDOM = document.querySelector("#counter span")
+let buttonAddDOM = document.querySelector("#increment")
+let buttonSubsDOM = document.querySelector("#decrement")
+let inputDOM = document.querySelector("#name")
+let textAddDOM = document.querySelector("#add-btn")
+let ulDOM = document.querySelector("#output-list")
+
+// SECCION DE FUNCIONES
+function handleMouseEnter() {
+  // console.log("mouse sobre el titulo");
+  eventTitleDOM.innerText = "Evento Patata";
+  // cambiar clase o cambiar id
+  // cambiar directamente el stylo del elemento de DOM
+  eventTitleDOM.style.color = "blue";
+  eventTitleDOM.style.fontSize = "40px";
+  lastTagDOM.style.backgroundColor = "green";
+}
+
+function handleMouseLeave() {
+// console.log("mouse sale del titulo");
+eventTitleDOM.innerText = "EVENTS!";
+// cambiar clase o cambiar id
+// cambiar directamente el stylo del elemento de DOM
+eventTitleDOM.style.color = "black";
+eventTitleDOM.style.fontSize = "24px";
+lastTagDOM.style.backgroundColor = "magenta";
+}
+
+function counterMas() {
+  counterDOM.innerText++
+}
+
+function counterMenos() {
+  if (counterDOM.innerText > 0) {
+    counterDOM.innerText--
+  }
+}
+
+function addStrToList() {
+  // console.log("intentado añadir a la lista")
+
+  // 1. necesitamos el valor que esta escribiendo el usuario
+  console.log(inputDOM.value)
+  let strToAdd = inputDOM.value
+
+  // 2. necesitamos crear un elemento de li
+  const elementLi = document.createElement("li")
+
+  // 3. necesitamos añadir el texto del campo al li
+  elementLi.innerText = strToAdd
+
+  // 4. necesitamos agregar el li a la lista
+  ulDOM.append(elementLi)
+
+  inputDOM.value = ""
+  inputDOM.placeholder = "nuevo placeholder"
+
+}
+
+// SECCION DE EVENT LISTENERS
+eventTitleDOM.addEventListener("mouseenter", handleMouseEnter)
+eventTitleDOM.addEventListener("mouseleave", handleMouseLeave)
+buttonAddDOM.addEventListener("click", counterMas)
+buttonSubsDOM.addEventListener("click", counterMenos )
+textAddDOM.addEventListener("click", addStrToList)
+
+inputDOM.addEventListener("keydown", (event) => {
+  if (event.code === "Enter") {
+    console.log("evento activo", event.code)
+    addStrToList()
+  }
+})
