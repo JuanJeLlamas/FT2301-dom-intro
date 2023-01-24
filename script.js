@@ -43,3 +43,31 @@ let buttonDOM = document.querySelector("button")
 buttonDOM.addEventListener("dblclick", () => {
   textDOM.innerText = "ya has hecho click! yay :)"
 })
+
+
+let titleDOM = document.querySelector("#title") // buscamos por id
+titleDOM.innerText = "Nuevo titulo"
+
+let paragraphDOM = document.querySelector(".some-text")
+paragraphDOM.innerText = "nuevo contenido parrafo"
+
+// querySelectorAll => todos los elementos de ese tipo
+
+let allParagraphDOM = document.querySelectorAll(".some-text")
+console.log(allParagraphDOM)
+// se guarda una lista de Nodos (NodeList)
+// no son Arrays, pero parece Arrays
+// podemos hacer acciones y metodos de array?
+// funcionan los bucles tradicionales y el sistema de indexación
+// IMPORTANTE. no todos los metodos de arrays funcionan sobre estas listas de nodos.
+
+
+for(let i = 0; i < allParagraphDOM.length; i++) {
+  allParagraphDOM[i].innerText = "modificando con bucle for"
+}
+
+// forEach
+
+allParagraphDOM.forEach((elem, index) => {
+  elem.innerText = "modificando con forEach"
+})
